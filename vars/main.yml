@@ -1,4 +1,5 @@
 ---
+# vars file for cve_2024_3094
 
 _cve_2024_3094_requirements:
   default:
