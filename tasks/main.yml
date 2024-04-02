@@ -13,3 +13,37 @@
     msg: "Vulnerable version of xz is installed"
   when:
     - xz_version.stdout | ansible.builtin.regex_search("5\.6\.(0|1)")
+
+- name: Find sshd path
+  ansible.builtin.find:
+    paths: /usr/sbin
+    patterns: sshd
+  register: sshd_path
+  failed_when: false
+  changed_when: false
+
+- name: Inspect sshd when installed
+  when:
+    - sshd_path.files | length > 0
+  block:
+    - name: Run lld against found sshd binary
+      ansible.builtin.command:
+        cmd: ldd {{ sshd_path.files[0].path }}
+      register: ldd_output
+      failed_when: false
+      changed_when: false
+      when:
+        - sshd_path.files | length > 0
+
+    - name: Run hexdump against found sshd binary
+      ansible.builtin.command:
+        cmd: hexdump -C {{ sshd_path.files[0].path }}
+      register: hexdump_output
+      failed_when: false
+      changed_when: false
+
+    - name: Fail if f30f1efa554889f54c89ce5389fb81e7000000804883ec28488954241848894c2410 found in hexdump
+      ansible.builtin.fail:
+        msg: "Vulnerable version of liblzma is linked to sshd"
+      when:
+        - hexdump_output.stdout | ansible.builtin.regex_search("f30f1efa554889f54c89ce5389fb81e7000000804883ec28488954241848894c2410")
