@@ -10,5 +10,5 @@ _cve_2024_3094_requirements:
   Ubuntu:
     - bsdmainutils
   Suse:
-    - python-hexdump
+    - util-linux
 cve_2024_3094_requirements: "{{ _cve_2024_3094_requirements[ansible_distribution] | default(_cve_2024_3094_requirements[ansible_os_family]) | default(_cve_2024_3094_requirements['default']) }}"
