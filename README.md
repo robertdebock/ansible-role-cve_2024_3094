@@ -19,6 +19,7 @@ This example is taken from [`molecule/default/converge.yml`](https://github.com/
 
   roles:
     - role: robertdebock.cve_2024_3094
+      cve_2024_3094_cleanup: false
 ```
 
 The machine needs to be prepared. In CI this is done using [`molecule/default/prepare.yml`](https://github.com/robertdebock/ansible-role-cve_2024_3094/blob/master/molecule/default/prepare.yml):
@@ -37,6 +38,17 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
 
+## [Role Variables](#role-variables)
+
+The default values for the variables are set in [`defaults/main.yml`](https://github.com/robertdebock/ansible-role-cve_2024_3094/blob/master/defaults/main.yml):
+
+```yaml
+---
+# defaults file for cve_2024_3094
+
+# If requirements are installed, would you like to remove them after this role ran?
+cve_2024_3094_cleanup: true
+```
 
 ## [Requirements](#requirements)
 

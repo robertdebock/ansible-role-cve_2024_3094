@@ -1,0 +1,5 @@
+---
+# defaults file for cve_2024_3094
+
+# If requirements are installed, would you like to remove them after this role ran?
+cve_2024_3094_cleanup: true

@@ -1,0 +1,8 @@
+---
+
+- name: assert | Test cve_2024_3094_cleanup
+  ansible.builtin.assert:
+    that:
+      - cve_2024_3094_cleanup is defined
+      - cve_2024_3094_cleanup is boolean
+    quiet: true

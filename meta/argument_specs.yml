@@ -7,4 +7,9 @@ argument_specs:
       Check xz vulnerability (cve_2024_3094) on your system.
       Fail if vulnerable, skip if not-vulnerable.
     author: Robert de Bock
-    options: {}
+    options:
+      cve_2024_3094_cleanup:
+        required: false
+        default: true
+        description: "If requirements are installed, would you like to remove them after this role ran?"
+        type: "bool"

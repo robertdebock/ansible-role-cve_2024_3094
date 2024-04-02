@@ -1,7 +1,13 @@
 ---
 # tasks file for cve_2024_3094
 
-- name: Run xz --version
+- name: Import assert.yml
+  ansible.builtin.import_tasks:
+    file: assert.yml
+  run_once: true
+  delegate_to: localhost
+
+- name: Check for 5.6.* in xz --version output
   ansible.builtin.command:
     cmd: xz --version
   register: xz_version
@@ -17,7 +23,6 @@
       - /usr/local/sbin
     patterns: sshd
   register: sshd_path
-  failed_when: false
   changed_when: false
 
 - name: Inspect sshd when installed
@@ -27,6 +32,8 @@
     - name: Install requirements
       ansible.builtin.package:
         name: "{{ cve_2024_3094_requirements }}"
+      notify:
+        - Remove requirements
 
     - name: Check for f30f1e... in hexdump output
       ansible.builtin.command:
