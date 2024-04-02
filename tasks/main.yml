@@ -34,7 +34,10 @@
 
     - name: Check for f30f1e... in hexdump output
       ansible.builtin.command:
-        cmd: hexdump -ve '1/1 "%.2x"' {{ sshd_path.files[0].path }}
+        cmd: hexdump -ve '1/1 "%.2x"' {{ item.path }}
+      loop: "{{ sshd_path.files }}"
+      loop_control:
+        label: "{{ item.path }}"
       register: hexdump_output
       changed_when: false
       failed_when:
