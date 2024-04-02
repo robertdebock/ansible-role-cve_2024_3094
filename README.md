@@ -48,6 +48,13 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 
 # If requirements are installed, would you like to remove them after this role ran?
 cve_2024_3094_cleanup: true
+
+# Where to look for `sshd`, a list of paths.
+cve_2024_3094_sshd_paths:
+      - /usr/bin
+      - /usr/sbin
+      - /usr/local/bin
+      - /usr/local/sbin
 ```
 
 ## [Requirements](#requirements)

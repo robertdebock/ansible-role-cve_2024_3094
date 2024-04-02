@@ -13,3 +13,8 @@ argument_specs:
         default: true
         description: "If requirements are installed, would you like to remove them after this role ran?"
         type: "bool"
+      cve_2024_3094_sshd_paths:
+        required: true
+        default: "['/usr/bin', '/usr/sbin', '/usr/local/bin', '/usr/local/sbin']"
+        description: "Where to look for `sshd`, a list of paths."
+        type: "list"

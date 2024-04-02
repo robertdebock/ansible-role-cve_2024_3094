@@ -16,11 +16,7 @@
 
 - name: Find sshd path
   ansible.builtin.find:
-    paths:
-      - /usr/bin
-      - /usr/sbin
-      - /usr/local/bin
-      - /usr/local/sbin
+    paths: "{{ cve_2024_3094_sshd_paths }}"
     patterns: sshd
   register: sshd_path
   changed_when: false
