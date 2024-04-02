@@ -1,0 +1,8 @@
+---
+
+_cve_2024_3094_requirements:
+  default:
+    - util-linux
+  Debian:
+    - bsdextrautils
+cve_2024_3094_requirements: "{{ _cve_2024_3094_requirements[ansible_os_family] | default(_cve_2024_3094_requirements['default']) }}"
