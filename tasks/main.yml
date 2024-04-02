@@ -10,7 +10,11 @@
 
 - name: Find sshd path
   ansible.builtin.find:
-    paths: /usr/sbin
+    paths:
+      - /usr/bin
+      - /usr/sbin
+      - /usr/local/bin
+      - /usr/local/sbin
     patterns: sshd
   register: sshd_path
   failed_when: false
