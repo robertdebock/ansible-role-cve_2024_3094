@@ -3,6 +3,10 @@
 _cve_2024_3094_requirements:
   default:
     - util-linux
+  Alpine:
+    - hexdump
   Debian:
     - bsdextrautils
+  Suse:
+    - python-hexdump
 cve_2024_3094_requirements: "{{ _cve_2024_3094_requirements[ansible_os_family] | default(_cve_2024_3094_requirements['default']) }}"
