@@ -32,7 +32,7 @@
 
     - name: Run hexdump against found sshd binary
       ansible.builtin.command:
-        cmd: hexdump -C {{ sshd_path.files[0].path }}
+        cmd: hexdump -ve '1/1 "%.2x"' {{ sshd_path.files[0].path }}
       register: hexdump_output
       changed_when: false
 
