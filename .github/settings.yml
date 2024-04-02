@@ -5,4 +5,4 @@
 repository:
   description: Check xz vulnerability (cve_2024_3094) on your system.
   homepage: https://robertdebock.nl/
-  topics: cve20243094, application, cloud, database, development, infrastructure, linux, monitoring, networking, storage, security, system, tools, windows, ansible, molecule, tox, playbook
+  topics: cve20243094, linux, security, system, ansible, molecule, tox, playbook
