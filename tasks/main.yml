@@ -8,7 +8,7 @@
   failed_when: false
   changed_when: false
 
-- name: Fail if vulnerable version of xz is installed 
+- name: Fail if vulnerable version of xz is installed
   ansible.builtin.fail:
     msg: "Vulnerable version of xz is installed"
   when:

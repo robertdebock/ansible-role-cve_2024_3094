@@ -7,3 +7,4 @@ argument_specs:
       Check xz vulnerability (cve_2024_3094) on your system.
       Fail if vulnerable, skip if not-vulnerable.
     author: Robert de Bock
+    options: []
