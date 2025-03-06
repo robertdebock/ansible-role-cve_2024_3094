@@ -5,5 +5,5 @@
   gather_facts: true
 
   roles:
-    - role: ansible-role-cve_2024_3094
+    - role: robertdebock.cve_2024_3094
       cve_2024_3094_cleanup: false
