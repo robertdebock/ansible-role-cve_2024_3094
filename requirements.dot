@@ -1,0 +1,11 @@
+digraph PhiloDilemma {
+  label = "Robert de Bock" ;
+  overlap=false
+  {
+    "cve_2024_3094" [fillcolor=yellow style=filled penwidth=3]
+    "robertdebock.bootstrap" [fillcolor=green style=filled]
+    "robertdebock.openssh" [fillcolor=green style=filled]
+  }
+  "cve_2024_3094" -> "robertdebock.bootstrap"
+  "cve_2024_3094" -> "robertdebock.openssh"
+}
